@@ -1,0 +1,6 @@
+@Anton_Antipov_kt_31_23_HostAddress = http://localhost:5163
+
+GET {{Anton_Antipov_kt_31_23_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
