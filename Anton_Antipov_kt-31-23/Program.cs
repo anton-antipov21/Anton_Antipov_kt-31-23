@@ -1,6 +1,9 @@
 
 using NLog;
 using NLog.Web;
+using Microsoft.EntityFrameworkCore;
+using Anton_Antipov_kt_31_23.Database;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,12 @@ try
 
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
     builder.Services.AddOpenApi();
+
+
+    builder.Services.AddDbContext<StudentDbContext>(options =>
+        options.UseNpgsql(
+            builder.Configuration.GetConnectionString("StudentDbContext")));
+
 
     var app = builder.Build();
 
